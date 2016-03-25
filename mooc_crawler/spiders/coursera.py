@@ -35,26 +35,5 @@ class CourseraSpider(Spider):
 			else:
 				item['university'] = item['university'][0] 
 			item['title'] = course.xpath('div[@class="horizontal-box"]/h2[@class="color-primary-text headline-1-text flex-1"]/text()').extract()[0]
-			response = Request(item["url"],callback=self.parse_course_page,meta={
-                					'splash': {
-                    						'args': {'wait': 0.5}
-								  }})
-			response.meta['item'] = item
-			items.append(response)
-		return items
+			return items
 
-    def parse_course_page(self, response):
-		item = response.meta['item']
-		try:
-			if item['url'] == 'https://www.coursera.org/learn/ml-foundations':
-				open_in_browser(response)
-			reviews = Selector(response).xpath('//div[@class="rc-CourseRatingsPreviewBox"]')
-			if reviews == []:	
-				return item
-			print "\n\n\n",reviews,"\n\n\n\n"
-			item['n_reviews'] = reviews.xpath('//h2[@class="c-course-rating-count"]/span//text()').extract()[0]
-			item['rating'] = reviews.xpath('//div[@class="c-average-course-rating-stats"]/span/strong//text()').extract()[0]
-			print item['n_reviews'],item['rating'],'\n\n'
-		except IndexError:
-			return None
-		return item
