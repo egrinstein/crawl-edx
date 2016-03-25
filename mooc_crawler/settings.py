@@ -51,13 +51,6 @@ NEWSPIDER_MODULE = 'mooc_crawler.spiders'
 #DOWNLOADER_MIDDLEWARES = {
 #    'mooc_crawler.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
-DOWNLOADER_MIDDLEWARES = {
-    'scrapyjs.SplashMiddleware': 725,
-}
-SPLASH_URL = 'http://localhost:8050/'
-DUPEFILTER_CLASS = 'scrapyjs.SplashAwareDupeFilter'
-HTTPCACHE_STORAGE = 'scrapyjs.SplashAwareFSCacheStorage'
-
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 #EXTENSIONS = {

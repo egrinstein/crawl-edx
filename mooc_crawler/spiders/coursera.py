@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from scrapy import Spider
 from scrapy.selector import Selector
-from scrapy.http import Request 
 from mooc_crawler.items import MoocCrawlerItem
-from scrapy.utils.response import open_in_browser
 
 BASE_URL = 'https://www.coursera.org'
 
@@ -35,5 +33,5 @@ class CourseraSpider(Spider):
 			else:
 				item['university'] = item['university'][0] 
 			item['title'] = course.xpath('div[@class="horizontal-box"]/h2[@class="color-primary-text headline-1-text flex-1"]/text()').extract()[0]
-			return items
-
+			yield item
+			
