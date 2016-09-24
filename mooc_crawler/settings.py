@@ -14,6 +14,9 @@ BOT_NAME = 'mooc_crawler'
 SPIDER_MODULES = ['mooc_crawler.spiders']
 NEWSPIDER_MODULE = 'mooc_crawler.spiders'
 
+
+LOG_LEVEL = 'INFO'
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'mooc_crawler (+http://www.yourdomain.com)'
 
