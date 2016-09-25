@@ -1,17 +1,10 @@
-# -*- coding: utf-8 -*-
-
-# Define here the models for your scraped items
-#
-# See documentation in:
-# http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
 
-
-class MOOCItem(scrapy.Item):
-    number = scrapy.Field()
-    key = scrapy.Field()
-    title = scrapy.Field()
+class edxitem(scrapy.item):
+    number = scrapy.field()
+    key = scrapy.field()
+    title = scrapy.field()
     short_description = scrapy.Field()
     full_description = scrapy.Field()
     level_type = scrapy.Field()
